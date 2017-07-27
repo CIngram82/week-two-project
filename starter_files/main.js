@@ -51,8 +51,16 @@ function question3() {
 // 4: Display a list of all items who are made of wood.
 function question4() {
   // Answer:
+  let wooden =[];
+  for (var i = 0; i < data.length; i++) {
+    for (var n = 0; n < data[i].materials.length; n++) {
+      if (data[i].materials[n] === "wood") {
+        wooden.push(data[i]);
+      }
+    }
+  }
 
-
+console.log(wooden);
 }
 
 
