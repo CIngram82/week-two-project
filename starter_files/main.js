@@ -59,7 +59,6 @@ function question4() {
       }
     }
   }
-
 console.log(wooden);
 }
 
@@ -68,6 +67,13 @@ console.log(wooden);
 //    Display the name, number of items and the items it is made of.
 function question5() {
   // Answer:
+for (var i = 0; i < data.length; i++) {
+  if (data[i].materials.length >= 8) {
+    console.log("name of item: " + data[i].title);
+    console.log("number of materials: " + data[i].materials.length);
+    console.log("made of: " + data[i].materials);
+  }
+}
 }
 
 
