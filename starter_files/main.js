@@ -15,22 +15,17 @@ function question1() {
     total = total + data[i].price;
   }
   average = total / data.length;
-  console.log(average.toFixed(2))
+  console.log("The average price is $" + average.toFixed(2));
 }
 
 // 2: Show me how to get an array of items that cost between $14.00 and $18.00 USD
 function question2() {
   // Answer:
-  let itemsForQTwo = [];
   for (var i = 0; i < data.length; i++) {
     if (data[i].price >= 14.00 && data[i].price <= 18.00) {
-      itemsForQTwo.push(data[i].price);
-
+      console.log(data[i].title);
     }
   }
-  console.log(itemsForQTwo);
-
-return itemsForQTwo;
 }
 
 
@@ -41,8 +36,7 @@ function question3() {
 
   for (var i = 0; i < data.length; i++) {
     if (data[i].currency_code === "GBP") {
-      console.log("name: " + data[i].title);
-      console.log("price: " + data[i].price.toFixed(2));
+      console.log(data[i].title + " costs " + data[i].price + " pounds.");
     }
   }
 }
@@ -51,15 +45,13 @@ function question3() {
 // 4: Display a list of all items who are made of wood.
 function question4() {
   // Answer:
-  let wooden =[];
   for (var i = 0; i < data.length; i++) {
     for (var n = 0; n < data[i].materials.length; n++) {
       if (data[i].materials[n] === "wood") {
-        wooden.push(data[i]);
+        console.log(data[i].title + " is made of wood.");
       }
     }
   }
-console.log(wooden);
 }
 
 
@@ -69,9 +61,10 @@ function question5() {
   // Answer:
 for (var i = 0; i < data.length; i++) {
   if (data[i].materials.length >= 8) {
-    console.log("name of item: " + data[i].title);
-    console.log("number of materials: " + data[i].materials.length);
-    console.log("made of: " + data[i].materials);
+    console.log("name of item: " + data[i].title + "has " + data[i].materials.length + " materials:");
+    for (var n = 0; n < data[i].materials.length; n++) {
+      console.log(" - " + data[i].materials[n]);
+    }
   }
 }
 }
@@ -86,6 +79,6 @@ for (var i = 0; i < data.length; i++) {
     ownerMade++;
   }
 }
-console.log(ownerMade);
+console.log(ownerMade + " items were made by their sellers.");
 
 }
