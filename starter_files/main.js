@@ -15,13 +15,22 @@ function question1() {
     total = total + data[i].price;
   }
   average = total / data.length;
+  console.log(average.toFixed(2))
 }
 
 // 2: Show me how to get an array of items that cost between $14.00 and $18.00 USD
 function question2() {
   // Answer:
+  let itemsForQTwo = [];
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].price >= 14.00 && data[i].price <= 18.00) {
+      itemsForQTwo.push(data[i].price);
 
+    }
+  }
+  console.log(itemsForQTwo);
 
+return itemsForQTwo;
 }
 
 
@@ -29,12 +38,21 @@ function question2() {
 // 3: Which item has a "GBP" currency code? Display it's name and price.
 function question3() {
   // Answer:
+
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].currency_code === "GBP") {
+      console.log("name: " + data[i].title);
+      console.log("price: " + data[i].price.toFixed(2));
+    }
+  }
 }
 
 
 // 4: Display a list of all items who are made of wood.
 function question4() {
   // Answer:
+
+
 }
 
 
