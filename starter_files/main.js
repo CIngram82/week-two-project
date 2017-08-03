@@ -59,26 +59,92 @@ function question4() {
 //    Display the name, number of items and the items it is made of.
 function question5() {
   // Answer:
-for (var i = 0; i < data.length; i++) {
-  if (data[i].materials.length >= 8) {
-    console.log("name of item: " + data[i].title + "has " + data[i].materials.length + " materials:");
-    for (var n = 0; n < data[i].materials.length; n++) {
-      console.log(" - " + data[i].materials[n]);
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].materials.length >= 8) {
+      console.log("name of item: " + data[i].title + "has " + data[i].materials.length + " materials:");
+      for (let n = 0; n < data[i].materials.length; n++) {
+        console.log(" - " + data[i].materials[n]);
+      }
     }
   }
-}
 }
 
 
 // 6: How many items were made by their sellers?
-// Answer:
+  // Answer:
 function question6() {
   let ownerMade = 0;
-for (var i = 0; i < data.length; i++) {
-  if (data[i].who_made === "i_did"){
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].who_made === "i_did"){
     ownerMade++;
+    }
+  }
+  console.log(ownerMade + " items were made by their sellers.");
+
+}
+// List all materials in the dataset in a single array (no duplicates).
+function question7() {
+
+  let materialsList = [];
+  let uniqueMaterialsList = [];
+  for (let i = 0; i < data.length; i++) {
+    for (let n = 0; n < data[i].materials.length; n++) {
+      materialsList.push(data[i].materials[n]);
+    }
+  }
+  materialsList.sort();
+  console.log(materialsList)
+  for (let r = 0; r < materialsList.length; r++) {
+    if ((materialsList[r]) !== (materialsList[r + 1])) {
+      uniqueMaterialsList.push(materialsList[r]);
+    }
+  }
+  console.log(uniqueMaterialsList);
+}
+
+function question8() {
+let procTime = 0;
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].processing_min <= procTime) {
+      if (data[i].processing_max >= procTime) {
+console.log(data[i].title + " can be processed in " + procTime + " days!");
+      }
+    }
   }
 }
-console.log(ownerMade + " items were made by their sellers.");
+function question9(){
+  // Sort the items by popularity according to views. The most popular items should be first.
+data.sort(function (a, b) {
+  return (b.views - a.views);
+});
+console.log(data);
+}
+
+function question10(){
+  // Create an array of objects, with each object containing a category name and the total number of views of all items in that category. For example, all items that are in the 'Vintage' category should have their views totaled and set as the views property of the object. Every category should have its own object in the array.
+let categoryListAll = [];
+let categoryListUnique = [];
+
+  for (let i = 0; i < data.length; i++) {
+    for (let n = 0; n < data[i].category_path.length; n++) {
+      categoryListAll.push(data[i].category_path[n]);
+
+    }
+  }
+  categoryListAll.sort();
+  for (let r = 0; r < categoryListAll.length; r++) {
+    if ((categoryListAll[r]) !== (categoryListAll[r + 1])) {
+      categoryListUnique.push(categoryListAll[r]);
+    }
+  }
+  console.log(categoryListUnique);
+
+  // for (let i = 0; i < data.length; i++) {
+  //   for (let n = 0; n < data[i].category_path.length; n++) {
+  //     if (data[i].category_path[n] === (categoryListUnique[any of them])) {
+  //
+  //     }
+
+      // categoryListAll.views.push(data[i].category_path[n]);
 
 }
